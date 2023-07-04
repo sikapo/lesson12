@@ -43,10 +43,4 @@ public class Methods {
                 .filter(ls -> ls.getPrise() < 75)
                 .collect(Collectors.toList());
     }
-
-    public List<Product> typoSorter (List<Product> list) {
-                return list.stream()
-                .sorted(Comparator.comparing(Product::getType))
-                .collect(Collectors.toList());
-    }
 }
