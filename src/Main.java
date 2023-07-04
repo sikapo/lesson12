@@ -20,11 +20,14 @@ public class Main {
         product.add(new Product("Book", 12, false, LocalDateTime.of(2023, 6, 24, 14, 56)));
 
         Methods methods = new Methods();
-        System.out.println(methods.findTypo(product));
-        System.out.println(methods.isDiscount(product));
-        System.out.println(methods.lowestPrise(product));
-        System.out.println(methods.lastThree(product));
-        System.out.println(methods.dataTypePriceFilter(product));
+//        System.out.println(methods.findTypo(product));
+//        System.out.println(methods.isDiscount(product));
+//        System.out.println(methods.lowestPrise(product));
+//        System.out.println(methods.lastThree(product));
+//        System.out.println(methods.dataTypePriceFilter(product));
 
+        List<Product> i = methods.typoSorter(product);
+        for (List<Product> entry: i) {
+        }
     }
 }
