@@ -1,6 +1,8 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,10 +19,12 @@ public class Main {
         product.add(new Product("Book", 45, false, LocalDateTime.of(2022, 6, 23, 14, 26)));
         product.add(new Product("Book", 12, false, LocalDateTime.of(2023, 6, 24, 14, 56)));
 
-        System.out.println(new Methods().findTypo(product));
-        System.out.println(new Methods().isDiscount(product));
-        System.out.println(new Methods().lowestPrise(product));
-        System.out.println(new Methods().lastThree(product));
-        System.out.println(new Methods().dataTypePriceFilter(product));
+        Methods methods = new Methods();
+        System.out.println(methods.findTypo(product));
+        System.out.println(methods.isDiscount(product));
+        System.out.println(methods.lowestPrise(product));
+        System.out.println(methods.lastThree(product));
+        System.out.println(methods.dataTypePriceFilter(product));
+
     }
 }
