@@ -39,9 +39,6 @@ public class Product {
     public LocalDateTime getTime() {
         return time;
     }
-    public double setPrise() {
-        return price;
-    }
 
     @Override
     public String toString() {
