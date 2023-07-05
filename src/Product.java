@@ -3,23 +3,23 @@ import java.time.LocalDateTime;
 public class Product {
     private final String type;
 
-    private double prise;
+    private double price;
     private boolean discount = false;
     private LocalDateTime time;
-    public Product(String type, double prise) {
+    public Product(String type, double price) {
         this.type = type;
-        this.prise = prise;
+        this.price = price;
     }
 
-    public Product(String type, double prise, boolean discount) {
+    public Product(String type, double price, boolean discount) {
         this.type = type;
-        this.prise = prise;
+        this.price = price;
         this.discount = discount;
     }
 
-    public Product(String type, double prise, boolean discount, LocalDateTime time) {
+    public Product(String type, double price, boolean discount, LocalDateTime time) {
         this.type = type;
-        this.prise = prise;
+        this.price = price;
         this.discount = discount;
         this.time = time;
     }
@@ -30,8 +30,8 @@ public class Product {
         return type;
     }
 
-    public double getPrise() {
-        return prise;
+    public double getPrice() {
+        return price;
     }
     public boolean getDiscount() {
         return discount;
@@ -40,12 +40,12 @@ public class Product {
         return time;
     }
     public double setPrise() {
-        return prise;
+        return price;
     }
 
     @Override
     public String toString() {
         return "type='" + type + '\'' +
-                ", prise=" + prise;
+                ", prise=" + price;
     }
 }
