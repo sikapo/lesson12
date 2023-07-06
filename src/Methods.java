@@ -10,19 +10,23 @@ public class Methods {
                 .filter(ls -> ls
                 .getPrice() > 250).toList();
     }
-    public List<AbstractMap.SimpleEntry<String, Double>> isDiscount(List<Product> list){
+    public List<List<Product>> isDiscount(List<Product> list){
         return list.stream()
                 .filter(ls -> ls.getType().equals("Book"))
                 .filter(Product::getDiscount)
-                .map(ls -> new AbstractMap.SimpleEntry<>(ls.getType(), ls.getPrice()*0.9) {})
-                .toList();
+                //.map(ls -> new AbstractMap.SimpleEntry<>(ls.getType(), ls.getPrice()*0.9) {})
+                .map(ls -> {ls.setPrice(ls.getPrice()*0.9); return list;})
+                .collect(Collectors.toList());
     }
-    public Optional<AbstractMap.SimpleEntry<String, Double>> lowestPrice(List<Product> list){
-        Optional<AbstractMap.SimpleEntry<String, Double>> lowestPrice = list.stream()
+
+    public Optional<Product> lowestPrice(List<Product> list){
+        Optional<Product> lowestPrice = list.stream()
                 .filter(ls -> ls.getType().equals("Book"))
                 .filter(Product::getDiscount)
-                .map(ls -> new AbstractMap.SimpleEntry<>(ls.getType(), ls.getPrice()*0.9) {})
-                .min(Comparator.comparingDouble(AbstractMap.SimpleEntry::getValue));
+                //.map(ls -> new AbstractMap.SimpleEntry<>(ls.getType(), ls.getPrice()*0.9) {})
+                .map(ls -> {ls.setPrice(ls.getPrice()*0.9); return ls;})
+                //.min(Comparator.comparingDouble(AbstractMap.SimpleEntry::getValue));
+                .min(Comparator.comparingDouble(Product::getPrice));
         if (lowestPrice.isPresent()) {
             return lowestPrice;
         }
@@ -47,6 +51,5 @@ public class Methods {
     }
     public Map<String, List<Product>> grouping(List<Product> list){
         return list.stream().collect(Collectors.groupingBy(Product::getType));
-
     }
 }

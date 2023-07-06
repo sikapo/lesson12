@@ -40,6 +40,10 @@ public class Product {
         return time;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "type='" + type + '\'' +
